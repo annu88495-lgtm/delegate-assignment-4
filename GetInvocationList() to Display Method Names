@@ -1,0 +1,38 @@
+GetInvocationList() returns all methods stored inside a multicast delegate.
+
+using System;
+
+class Program
+{
+    public delegate void MyDelegate();
+
+    static void First()
+    {
+        Console.WriteLine("First method executed");
+    }
+
+    static void Second()
+    {
+        Console.WriteLine("Second method executed");
+    }
+
+    static void Third()
+    {
+        Console.WriteLine("Third method executed");
+    }
+
+    static void Main()
+    {
+        MyDelegate d = First;
+
+        d += Second;
+        d += Third;
+
+        foreach (MyDelegate method in d.GetInvocationList())
+        {
+            Console.WriteLine("Method Name: " + method.Method.Name);
+
+            method();
+        }
+    }
+}
