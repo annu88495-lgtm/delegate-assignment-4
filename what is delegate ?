@@ -1,0 +1,27 @@
+/* What is a Delegate in C#?
+
+A delegate in C# is a type-safe reference to a method. It stores the reference of a method and allows that method to be called through the delegate.
+
+Purpose of Delegate
+It is used to pass methods as arguments.
+It provides flexibility in calling methods.
+It is widely used in events and callback functions.
+A delegate can point to one method or multiple methods.
+General Syntax
+delegate ReturnType DelegateName(parameters);
+
+Example:*/
+
+
+public delegate void MyDelegate();
+
+static void Display()
+{
+    Console.WriteLine("Hello");
+}
+
+static void Main()
+{
+    MyDelegate d = Display;
+    d();
+}
