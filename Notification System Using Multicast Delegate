@@ -1,0 +1,9 @@
+using System;
+class Program { public delegate void NotificationDelegate(string message); 
+static void Email(string message)
+{ Console.WriteLine("Email Notification: " + message); } 
+
+static void SMS(string message) { Console.WriteLine("SMS Notification: " + message); } 
+static void WhatsApp(string message)
+{ Console.WriteLine("WhatsApp Notification: " + message); } 
+static void Main() { NotificationDelegate notification = Email; notification += SMS; notification += WhatsApp; notification("Your order has been shipped."); } }
