@@ -1,0 +1,23 @@
+Delegate to Add Two Integer Values
+using System;
+
+class Program
+{
+    public delegate int AddDelegate(int a, int b);
+
+    static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    static void Main()
+    {
+        AddDelegate d = Add;
+
+        int result = d(10, 20);
+
+        Console.WriteLine("Sum = " + result);
+    }
+}
+Output
+Sum = 30
