@@ -1,0 +1,23 @@
+using System;
+class Program { static void DisplayNumber(int n) 
+
+{ Console.WriteLine("Number = " + n); } 
+
+
+static void Square(int n)
+
+{ Console.WriteLine("Square = " + (n * n)); } 
+
+static void Cube(int n)
+
+{ Console.WriteLine("Cube = " + (n * n * n)); }
+
+static void Main()
+
+{ // Unicast Action Action<int> action1 = DisplayNumber; Console.WriteLine("Unicast Action:");
+
+action1(5);
+
+// Multicast Action Action<int> action2 = DisplayNumber; action2 += Square; action2 += Cube;
+
+Console.WriteLine("\nMulticast Action:"); action2(5); } }
