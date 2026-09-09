@@ -1,0 +1,16 @@
+using System; 
+class Program { static bool IsEven(int n)
+
+{ return n % 2 == 0; }
+
+static bool IsPositive(int n)
+
+{ return n > 0; } 
+
+static bool IsGreaterThan100(int n)
+
+{ return n > 100; } static void Main() 
+
+{ Predicate<int> check = IsEven; check += IsPositive; check += IsGreaterThan100; int number = 120; foreach (Predicate<int> method in check.GetInvocationList())
+
+{ bool result = method(number); Console.WriteLine( method.Method.Name + " = " + result ); } } }
