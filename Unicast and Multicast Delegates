@@ -1,0 +1,55 @@
+<!-- Unicast and Multicast Delegates
+Unicast Delegate
+
+A unicast delegate stores the reference of only one method.
+
+Multicast Delegate
+
+A multicast delegate stores references to two or more methods. The methods are called one after another. -->
+
+using System;
+
+class Program
+{
+    public delegate void MyDelegate();
+
+    static void Method1()
+    {
+        Console.WriteLine("Method 1 called");
+    }
+
+    static void Method2()
+    {
+        Console.WriteLine("Method 2 called");
+    }
+
+    static void Method3()
+    {
+        Console.WriteLine("Method 3 called");
+    }
+
+    static void Main()
+    {
+        // Unicast Delegate
+        MyDelegate d1 = Method1;
+
+        Console.WriteLine("Unicast Delegate:");
+        d1();
+
+        // Multicast Delegate
+        MyDelegate d2 = Method1;
+        d2 += Method2;
+        d2 += Method3;
+
+        Console.WriteLine("\nMulticast Delegate:");
+        d2();
+    }
+}
+Output
+Unicast Delegate:
+Method 1 called
+
+Multicast Delegate:
+Method 1 called
+Method 2 called
+Method 3 called
