@@ -1,0 +1,22 @@
+using System; 
+
+class Program { static int Add(int a, int b) { return a + b; } 
+
+static int Subtract(int a, int b) { return a - b; } 
+
+
+static int Multiply(int a, int b) { return a * b; }
+
+static void Main()
+
+{ // Unicast Func Func<int, int, int> f1 = Add;
+
+Console.WriteLine("Unicast Func:");
+
+Console.WriteLine("Addition = " + f1(20, 10));
+
+// Multicast Func Func<int, int, int> f2 = Add; f2 += Subtract; f2 += Multiply; Console.WriteLine("\nMulticast Func:");
+
+foreach (Func<int, int, int> method in f2.GetInvocationList()) 
+
+{ int result = method(20, 10); Console.WriteLine( method.Method.Name + " = " + result ); } } }
