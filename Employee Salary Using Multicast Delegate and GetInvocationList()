@@ -1,0 +1,17 @@
+using System;
+
+class Program { public delegate double SalaryDelegate(double basic);
+
+static double BasicSalary(double basic) { return basic;
+
+} static double HRA(double basic) { return basic * 0.20; }
+
+static double DA(double basic) { return basic * 0.10; }
+
+static double Bonus(double basic) 
+
+{ return basic * 0.15; } 
+
+static void Main() 
+
+{ double basic = 50000; SalaryDelegate salary = BasicSalary; salary += HRA; salary += DA; salary += Bonus; foreach (SalaryDelegate method in salary.GetInvocationList()) { double result = method(basic); Console.WriteLine(method.Method.Name + " = " + result); } } }
