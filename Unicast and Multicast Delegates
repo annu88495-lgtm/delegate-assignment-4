@@ -45,11 +45,4 @@ class Program
         d2();
     }
 }
-Output
-Unicast Delegate:
-Method 1 called
-
-Multicast Delegate:
-Method 1 called
-Method 2 called
-Method 3 called
+ 
